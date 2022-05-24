@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="pl" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="text.if.have.account">
+                <source>text.if.have.account</source>
+                <target>Jeśli masz konto, to</target>
+            </trans-unit>
+            <trans-unit id="text.if.not.have.account">
+                <source>text.if.not.have.account</source>
+                <target>Jeśli nie masz konta, to</target>
+            </trans-unit>
+            <trans-unit id="text.if.dont.want">
+                <source>text.if.dont.want</source>
+                <target>Zobacz serwis bez logowania</target>
+            </trans-unit>
+            <trans-unit id="label.action.withoutlogin">
+                <source>label.action.withoutlogin</source>
+                <target>Wejdź</target>
+            </trans-unit>
+            <trans-unit id="label.action.register">
+                <source>label.action.register</source>
+                <target>Zarejstruj się</target>
+            </trans-unit>
+            <trans-unit id="label.action.login">
+                <source>label.action.login</source>
+                <target>Zaloguj się</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

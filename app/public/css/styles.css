@@ -1,0 +1,144 @@
+.lewo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    justify-items: stretch;
+
+    text-align: center;
+    width: auto;
+}
+.prawo{
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    justify-items: stretch;
+
+    text-align: center;
+    width: auto;
+}
+.wszystko{
+    margin-top: 50px;
+    padding: 2%;
+}
+.lewo1{
+    display: inline-flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+    align-content: center;
+
+
+}
+.wszystko1{
+    margin-top: 40px;
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+.prawo1{
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    margin-left: 10%;
+}
+.obok{
+    margin-top: 10%;
+}
+.ll{
+    margin-left: 24%;
+}
+.kom{
+    border: #2e3136;
+    border-radius: 10px;
+    background: pink;
+    width: auto;
+}
+dl {
+    padding: 10px;
+    width: 600px;
+}
+dt {
+    float: left;
+    clear: left;
+    width: auto;
+    text-align: right;
+    font-weight: bold;
+    color: #112b80;
+}
+dt::after {
+    content: ":";
+}
+dd {
+    margin: 0 0 0 110px;
+    padding: 0 0 2% 2%;
+}
+
+.container
+{
+    width: 100%;
+    height: 99%;
+    text-align: center;
+    background-color: rgba(242,242,242, 0.3);
+    margin-top: 1%;
+    margin-left: 5%;
+    border-radius: 15px;
+    padding: 4%;
+}
+.container3
+{
+    width: 100%;
+    text-align: center;
+    background-color: rgba(242,242,242, 0.8);
+    margin-top: 2%;
+    border-radius: 15px;
+    padding: 4%;
+}
+.position-buttons
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+.box
+{
+    width: 30%;
+    height: 45%;
+}
+
+.container4
+{
+    width: 45%;
+    text-align: center;
+    background-color: rgba(242,242,242, 0.8);
+    margin-top: 2%;
+    border-radius: 15px;
+    padding: 6.5%;
+    float: left;
+}
+.container5
+{
+    width: 45%;
+    text-align: center;
+    background-color: rgba(242,242,242, 0.8);
+    margin-top: 2%;
+    float: right;
+    margin-right: 0;
+    border-radius: 15px;
+    padding: 5.3%;
+    margin-left: 10%;
+}
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

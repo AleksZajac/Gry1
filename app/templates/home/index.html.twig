@@ -1,0 +1,64 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://bootswatch.com/5/journal/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{asset('css/style2.css') }}">
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="container1">
+            <h1>Szukasz odpowiedniej gry planszowej?</h1>
+            <h1>Jeśli tak, to ten serwis jest właśnie dla Ciebie!</h1>
+        </div>
+        <div class="container3 ">
+            <h2> Krok 1</h2>
+            <div class="position-buttons">
+                <td>
+                    <div class="box">
+                        <h4>
+                            {{ 'text.if.have.account'|trans }}
+                        </h4>
+                        <a class="btn btn-lg btn-primary"  href="{{ url('security_login') }}" title="{{ 'label.action.login'|trans }}">
+                            {{ 'label.action.login'|trans }}
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <div class="box">
+                        <h4>
+                            {{ 'text.if.not.have.account'|trans }}
+                        </h4>
+                        <a class="btn btn-lg btn-primary"  href="{{ url('registration') }}" title="{{ 'label.action.register'|trans }}">
+                            {{ 'label.action.register'|trans }}
+                        </a>
+                </div>
+                </td>
+                <td>
+                    <div class="box">
+                        <h4>
+                            {{ 'text.if.dont.want'|trans }}
+                        </h4>
+                        <a class="btn btn-lg btn-primary"  href="{{ url('games_index') }}" title="{{ 'label.action.withoutlogin'|trans }}">
+                            {{ 'label.action.withoutlogin'|trans }}
+                        </a>
+                </div>
+                </td>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="container4 ">
+                <h2> Krok 2</h2>
+                <h3> Kliknij "Ankieta" i uzupełnij</h3>
+            </div>
+            <div class="container5 ">
+                <h2> Krok 3</h2>
+                <h3> Zobacz jakie gry podpowiada Ci serwis!</h3>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

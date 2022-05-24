@@ -1,0 +1,9 @@
+{% include 'default/_form.html.twig' with {
+    page_title: 'title.game_delete',
+    page_title_param: {'%id%': game.id},
+    attr: {
+        method: 'DELETE',
+        action: url('game_delete', {'id': game.id}),
+    },
+    back_to_list_path: 'games_index',
+} %}

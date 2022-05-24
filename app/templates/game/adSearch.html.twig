@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}
+        {{ 'title.advancedSearch'|trans}}
+    {% endblock %}
+
+    {% block body %}
+        <div class="container">
+            <h1> {{ 'title.adSearch'|trans}}</h1>
+            {{ form_start(form, { method: 'GET', action: url('games_search') }) }}
+            {{ form_widget(form) }}
+            <input type="submit" value="{{ 'title.search'|trans}}" class="btn btn-primary" />
+            {{ form_end(form) }}
+        </div>
+    {% endblock %}

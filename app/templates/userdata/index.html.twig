@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://bootswatch.com/5/journal/bootstrap.min.css">
+{% endblock %}
+{% block title %}
+    {{ 'title.Userpanel'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.Userspanel'|trans}}</h1>
+    <dl class="dl-horizontal">
+        <dt>{{ 'label.login'|trans }}</dt>
+        <dd>{{ userdata.login }}</dd>
+        <dt>{{ 'label.name'|trans }}</dt>
+        <dd>{{ userdata.name }}</dd>
+        <dt>{{ 'label.surname'|trans }}</dt>
+        <dd>{{ userdata.surname }}</dd>
+    </dl>
+    <a class="btn btn-primary" href="{{ url('data_edit')}}" title="{{ 'action.edit_data'|trans }}">
+        {{ 'action.edit_data'|trans }}
+    </a>
+    <a class="btn btn-primary" href="{{ url('change_password') }}" title="{{ 'title.change_password'|trans }}">{{ 'title.change_password'|trans }}</a>
+
+
+
+
+{% endblock %}

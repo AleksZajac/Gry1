@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.game_list'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.game_list'|trans }}</h1>
+    <a class="btn btn-primary" href="{{ url('game_new')}}" title="{{ 'action.add_game'|trans }}">
+        {{ 'action.add_game'|trans }}
+    </a>
+    <a class="btn btn-primary" href="{{ url('type_new')}}" title="{{ 'action.add_type'|trans }}">
+        {{ 'action.add_type'|trans }}
+    </a>
+    <a class="btn btn-primary" href="{{ url('category_new')}}" title="{{ 'action.add_category'|trans }}">
+        {{ 'action.add_category'|trans }}
+    </a>
+    <a class="btn btn-primary" href="{{ url('games_search')}}" title="{{ 'action.games_search'|trans }}">
+        {{ 'action.games_search'|trans }}
+    </a>
+    {% if pagination is defined and pagination|length %}
+
+        <div class=" navigation pagination-sm">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{knp_pagination_sortable(pagination, 'label.id'|trans, 'game.id')}}</th>
+                <th>{{knp_pagination_sortable(pagination, 'label.title_game'|trans, 'game.title') }}</th>
+                <th>{{knp_pagination_sortable(pagination, 'label.title_publisher'|trans, 'game.publisher') }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for game in pagination %}
+                <tr>
+                    <td>{{ game.id }}</td>
+                    <td>{{ game.title }}</td>
+                    <td>{{ game.publisher }}</td>
+                    <td><a class="btn btn-primary" href="{{ url('game_view', {id: game.id}) }}" title="{{ 'action.view'|trans }}">
+                            {{ 'action.view'|trans }}
+                        </a>
+                        <a class="btn btn-primary" href="{{ url('game_edit', {id: game.id}) }}" title="{{ 'action.edit'|trans }}">
+                            {{ 'action.edit'|trans }}
+                        </a>
+                        <a class="btn btn-primary" href="{{ url('game_delete', {id: game.id}) }}" title="{{ 'action.delete'|trans }}">
+                            {{ 'action.delete'|trans }}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    {% else %}
+        <p>
+            {{ 'message.empty_list'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

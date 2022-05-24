@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.game_details'|trans({'%id%': game.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.game_details'|trans({'%id%': game.id|default('')}) }}</h1>
+    <div class="wszystko1">
+
+    <div class="lewo1">
+        {% if game.photo is defined and game.photo|length %}
+            <img class="nav-profile-img" src="{{ asset('uploads/photos/'~ game.photo.filename) }}" alt="photo">
+            <div class="ll">
+            <a class="btn btn-primary obok" href="{{ url('photo_edit', {id: game.photo.id}) }}" title="{{ 'action.edit_photo'|trans }}">
+                {{ 'action.edit_photo'|trans }}
+            </a>
+            <a class="btn btn-primary obok" href="{{ url('photo_delete', {id: game.photo.id}) }}" title="{{ 'action.photo_delete'|trans }}">
+                {{ 'action.delete_photo'|trans }}
+            </a>
+        {% else %}
+
+                <a class="btn btn-primary obok" href="{{ url('photos_create', {id: game.id})}}" title="{{ 'action.add_photo'|trans }}">
+                    {{ 'action.add_photo'|trans }}
+                </a>
+
+        {% endif %}</div>
+    </div>
+
+    <div class="prawo1">
+    {% if game is defined and game|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>{{ game.id }}</dd>
+            <dt>{{ 'label.title'|trans }}</dt>
+            <dd>{{  game.title }}</dd>
+            <dt>{{ 'label.description'|trans }}</dt>
+            <dd>{{  game.description }}</dd>
+            <dt>{{ 'label.publisher'|trans }}</dt>
+            <dd>{{  game.publisher }}</dd>
+            <dt>{{ 'label.releasedate'|trans }}</dt>
+            <dd>{{ game.releasedate|format_date('long') }}</dd>
+            <dt>{{ 'label.type'|trans }}</dt>
+            <dd>{{ game.type.name }}</dd>
+            <dt>{{ 'label.extensive'|trans }}</dt>
+            {% if game.extensive == '1' %}
+                <dd class="aa">TAK</dd>
+            {% else %}
+                <dd>NIE</dd>
+            {% endif %}
+            <dt>{{ 'label.gametime'|trans }}</dt>
+            <dd>{{ game.gametime }}</dd>
+            <dt>{{ 'label.mingamers'|trans }}</dt>
+            <dd>{{ game.mingamers }}</dd>
+            <dt>{{ 'label.maxgamers'|trans }}</dt>
+            <dd>{{ game.maxgamers }}</dd>
+            <dt>{{ 'label.ispolish'|trans }}</dt>
+            {% if game.ispolish == '1' %}
+                <dd>TAK</dd>
+            {% elseif game.ispolish =='0'%}
+                <dd>NIE</dd>
+            {% else %}
+                <td>BRAK INFORMACJI</td>
+            {% endif %}
+        </dl>
+        <p>
+            <a class="btn btn-primary" href="{{ url('games_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+            {% if is_granted('ROLE_USER') %}
+                <a class="btn btn-primary prawa" href="{{ url('favorite_new', {'id': game.id})}}" title="{{ 'action.back_to_list'|trans }}">
+                    {{ 'action.add_favorite'|trans }}
+                </a>
+            {% endif %}
+        </p>
+    {% else %}
+        <p>
+            {{ 'message.record_not_found'|trans }}
+        </p>
+    {% endif %}
+    </div>
+    </div>
+    <div class="kom">
+    <h3>{{ 'title.comments:'|trans({'%id%': game.id|default('')}) }}</h3>
+    {% if is_granted('ROLE_USER') %}
+        <a class="btn btn-primary prawa" href="{{ url('add_comment', {'id': game.id})}}" title="{{ 'action.back_to_list'|trans }}">
+            {{ 'action.add_comment'|trans }}
+        </a>
+    {% endif %}
+    {% if comments is defined %}
+        {% for comment in comments %}
+            <dl class="dl-horizontal">
+                {{ comment.user.login }}<a>:</a>
+                {{ comment.content }}
+
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a class="btn btn-primary prawa" href="{{ url('comment_delete', {'id': comment.id})}}" title="{{ 'action.delete_comment'|trans }}">
+                        {{ 'action.delete_comment'|trans }}
+                    </a>
+                {% endif %}
+            </dl>
+        {% endfor %}
+    {% else %}
+        <p>
+            {{ 'message.no.comments'|trans }}
+        </p>
+    {% endif %}
+    </div>
+{% endblock %}

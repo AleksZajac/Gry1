@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'Result'|trans }}
+{% endblock %}
+
+    {% block body %}
+        <h1>{{ 'Result'|trans }}</h1>
+
+        {% if pagination is defined and pagination.items|length %}
+
+            <div class="navigation text-center">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>{{ knp_pagination_sortable(pagination, 'label_title'|trans, 'game.title') }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for game in pagination.items %}
+                    <tr>
+                        <td>{{ game.title }}</td>
+                        <td>
+                            <a href="{{ url('game_view', {id: game.id}) }}" title="{{ 'action_view'|trans }}">
+                                {{ 'view_record'|trans }}
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="navigation text-center">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+
+        {% else %}
+            <p>
+                {{ 'message_empty_list'|trans }}
+            </p>
+        {% endif %}
+    {% endblock %}

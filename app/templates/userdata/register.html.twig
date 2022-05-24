@@ -1,0 +1,32 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://bootswatch.com/5/journal/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('css/styles3.css') }}">
+    <link rel="stylesheet" href="{{asset('css/styles.css') }}">
+
+{% endblock %}
+{% block body %}
+    <div class="container-fluid d-none d-md-flex col-md-4 col-lg-6 container7">
+            <div class="col-md-8 col-lg-6">
+                <div class="row">
+                    <div class="col-md-9 col-lg-8 mx-auto">
+                        <h1>Zarejestruj się</h1>
+
+                        {{ form_start(form, { method: 'POST', action: url('registration') }) }}
+                        {{ form_widget(form) }}
+                         <div class="form-group row float-sm-right">
+                            <input type="submit" value="Zarejestruj się" class="btn btn-primary" />
+                         </div>
+                         {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        <div>
+            <h1>Rejestrując się zyskasz:</h1>
+            <ul>
+                <li><a>możliwość dodawania komentarzy</a></li>
+                <li><a>możliwość zapisywania gier na liście ulubionych</a></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}
